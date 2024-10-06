@@ -13,8 +13,12 @@
 }
 
 
-body {
+*{
   font-family: 'Satoshi-Bold', sans-serif;
+}
+
+body {
+   font-family: 'Satoshi-Bold', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,3 +32,86 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
    scrollbar-width: none; /* Firefox */
  } 
+
+ 
+.container {
+  max-width: 400px;
+  background-color: transparent;
+  border-radius: 40px;
+  padding: 25px 35px;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: white
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.form .input {
+  width: 100%;
+  background: #f0f0f0;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 20px;
+  margin-top: 15px;
+  box-shadow: rgba(186, 198, 203, 0.878) 0px 15px 10px -15px;
+  border-inline: 2px solid transparent;
+}
+
+.form .input::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+  outline: none;
+}
+
+.form .forgot-password {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.form .forgot-password a {
+  font-size: 11px;
+  color: white;
+  text-decoration: none;
+}
+
+.form .login-button {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background-color: #4285F4;
+  color: black;
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow:#679ef6;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+  transform: scale(1.03);
+  box-shadow: #4285F4;
+}
+
+.form .input:hover{
+  transform: scale(1.03);
+
+}
+
+.form .login-button:active {
+  transform: scale(0.95);
+  box-shadow: rgba(186, 198, 203, 0.878) 0px 15px 10px -15px;
+}
