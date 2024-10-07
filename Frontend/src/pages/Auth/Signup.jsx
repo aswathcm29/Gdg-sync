@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toaster,toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import gdgImage from '../../assets/images/gdg-bgremove.png'
@@ -12,6 +12,25 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [contactno,setContactno] = useState("");
   const navigate = useNavigate();
+
+  function getCookieValue(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + '=')) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return null;
+}
+
+ const token = getCookieValue('token');
+ useEffect(()=>{
+  if(token){
+    const role = localStorage.getItem("role");
+    navigate(role === 'admin' ? '/admin/dashboard' : '/user/home');
+  }
+ },[token,navigate])
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -34,8 +53,11 @@ const Signup = () => {
       });
       if(response.status===200){
       toast.success('Login Successful');
-      document.cookie = `token = ${response.data.token}`
-      navigate('/home')
+      const { token, role ,email} = response.data.message;
+      localStorage.setItem('token', token);
+      localStorage.setItem('role', role);
+      localStorage.setItem('role', email);
+      document.cookie = `token = ${token}`
       }
     } catch (err) {
       toast.error('Login failed')
@@ -43,7 +65,6 @@ const Signup = () => {
     }
   };
   
-
   return (
     <div className="relative h-[100vh] flex flex-col items-center justify-center bg-black">
     <div className="absolute flex  flex-row-reverse items-center justify-between opacity-10 pointer-events-none">

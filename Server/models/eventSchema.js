@@ -17,13 +17,16 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    image :{
+      type : String,
+      required : true
+    },
     location: {
         type: String,
         required: true
     },
     organiser: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        type: String,
         required: true
     },
     status :{

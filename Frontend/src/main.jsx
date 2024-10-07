@@ -25,6 +25,10 @@ const BrowserRouter = createBrowserRouter([
     element: <Signup />, 
   },
   {
+    path:"/",
+    element:<App/>
+  },
+  {
     path: "/admin",
     element: (
       <ProtectedRoute requiredRole="admin">

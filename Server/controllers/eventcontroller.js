@@ -1,11 +1,16 @@
 const {Event}  = require('../models/eventSchema');
+const { User } = require('../models/userSchema');
 
 
 
 const createEvent = async (req,res)=>{
     try{
-        const {title,description,date,time,location,organiser} = req.body;
-        if(!title || !description || !date || !time || !location || !organiser){
+        const {title,description,date,time,location,image} = req.body;
+        if(req.user.role!='admin'){
+            return res.status(400).json({error:true,message:'Unauthorized'})
+        }
+        console.log(req.user.email)
+        if(!title || !description || !date || !time || !location){
             return res.status(400).json({error:true,message:'Enter all fields'})
         }
         const event = await Event.create({
@@ -14,7 +19,8 @@ const createEvent = async (req,res)=>{
             date,
             time,
             location,
-            organiser
+            image,
+            organiser : req.user.email
         })
         return res.status(200).json({error:false,message:'Event created successfully',event})
     }catch(err){
@@ -22,6 +28,7 @@ const createEvent = async (req,res)=>{
         return res.status(400).json({error:true,message:err.message})
     }
 }
+
 
 const getEvents = async(req,res)=>{
     try{
@@ -67,7 +74,8 @@ const deleteEvent = async(req,res)=>{
 
 const getEventsbyUser = async (req, res) => {
     try {
-        const events = await Event.find({ organiser: req.params.userId });
+        const email = req.body.email;
+        const events = await Event.find({ organiser: email });
         return res.status(200).json({ error: false, message: 'Events fetched successfully', events });
     } catch (err) {
         console.log(err.message);

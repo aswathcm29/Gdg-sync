@@ -22,7 +22,7 @@ const Login =async(req,res)=>{
         if(token==""){
             return res.status(400).json({error:true,message:'Token generation failed'})
         }
-        return res.status(200).json({error:false,message:{text:"Logged in successfully",token:token,role:user.role}})
+        return res.status(200).json({error:false,message:{text:"Logged in successfully",token:token,role:user.role,email:user.email}})
   }catch(err){
     console.log(err.message)
     return res.status(400).json({error:true , message:err.message})
@@ -59,7 +59,7 @@ const Signup = async (req, res) => {
 
         return res.status(200).json({
             error: false,
-            message: { text: 'User created successfully', token: token }
+            message: { text: 'User created successfully', token: token, role:'user',email:email }
         });
 
     } catch (err) {
@@ -68,4 +68,15 @@ const Signup = async (req, res) => {
     }
 };
 
-module.exports = {Login,Signup}
+const getUser = (req, res) =>{
+    if(!req.user){
+        return res.status(400).json({error:true,message:'User not found'})
+    }
+    try{
+        return res.status(200).json({error:false,message:{username: req.user.username,id:req.user.id}})
+      }catch(err){
+       res.status(400).json({error:true,message:err.message})
+      }
+}
+
+module.exports = {Login,Signup,getUser}
