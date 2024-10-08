@@ -10,7 +10,13 @@ const app = express();
 dotenv.config({ path: './.env' });
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+{
+    origin: ['http://localhost:3000', 'https://gdg-sync.vercel.app/']
+}
+));  
+
+
 app.use(bodyParser.json());
 
 
