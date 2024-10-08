@@ -6,26 +6,22 @@ import { IoMdArrowDroprightCircle } from "react-icons/io";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
 import EventCard from "../../../components/EventCard";;
 import axios from "axios";
-import bluebg from '../../../assets/images/blue-bg.png'
+import lap from '../../../assets/images/events-boook.png'
+import { useNavigate } from "react-router-dom";
+import getCookieValue from "../../../utils/token";
 
 const Body = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
+  const navigate = useNavigate();
+
+  const createPage=()=>{
+    navigate('/admin/create');
+  }
 
   const emailID = localStorage.getItem("email");
   
-  function getCookieValue(name) {
-    const cookies = document.cookie.split(";");
-    for (let cookie of cookies) {
-      cookie = cookie.trim();
-      if (cookie.startsWith(name + "=")) {
-        return cookie.substring(name.length + 1);
-      }
-    }
-    return null;
-  }
-
   const token = getCookieValue("token");
 
   const fetchEvents = async () => {
@@ -80,21 +76,28 @@ const Body = () => {
   };
 
   return (
-    <div className="flex flex-col w-full justify-center items-center px-[1rem]">
-      <div className="p-[1rem] sm:p-[2rem] gap-y-[2rem] w-full flex items-center justify-center flex-col rounded-md shadow-sm shadow-white">
-        
-        <span className="text-2xl md:text-4xl text-center ">
-          Create and manage your events at ease
-        </span>
-        <button
-          onClick={() => {}}
-          className="flex items-center gap-x-[0.5rem] px-2 py-2 md:px-[2rem] md:py-[1rem] bg-green rounded-md text-center text-sm md:text-base hover:bg-blue-400 transition-all duration-300"
-        >
-          <MdOutlineEvent className="text-2xl text-white" />
-          <span className="text-xl md:text-xl">Create New</span>
-        </button>
-      </div>
+    <div className="flex flex-col w-full justify-center items-center px-[1rem] h-full ">
+    <div className=" p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row items-center  shadow-sm shadow-white rounded-md">
+  <img src={lap} className="w-[20rem] md:w-[25rem] lg:w-[30rem]" />
+  <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-y-4 lg:gap-y-6">
+    <span className="text-3xl md:text-5xl font-bold w-full tracking-wide">
+      <span className="text-blue">G<span className="text-red">D</span><span className="text-yellow">G</span><span className="text-green">-</span>sync</span>
+    </span>
+    <p className="text-lg md:text-xl text-gray-600 w-[20rem] lg:w-[24rem]">
+      Synchronize all your events with ease and manage them effortlessly.
+    </p>
+  </div>
 
+  <div className="mt-6 lg:mt-0 md:flex md:justify-end md:w-full md:mr-[3rem]">
+    <button
+      onClick={() => {createPage()}}
+      className="flex items-center gap-x-[0.5rem] px-6 py-3 md:px-8 md:py-4 bg-green-500 hover:bg-green-600 text-white rounded-md shadow-md transition-all duration-300 ease-in-out"
+    >
+      <MdOutlineEvent className="text-2xl text-white" />
+      <span className="text-lg md:text-xl">Create New Event</span>
+    </button>
+  </div>
+</div>
       <div className="flex flex-col w-full p-[1rem] gap-y-[1rem]">
         <div className="flex justify-between items-center md:flex-row flex-col gap-y-[1rem]">
           <span className="text-2xl">Your events</span>
@@ -158,15 +161,13 @@ const Body = () => {
 const Dashboard = () => {
   return (
     <>
-      <div className="bg-black text-[#f0f0f0] min-h-screen">
-        <div className="flex flex-col md:flex-row">
-          <AdminNav />
-          <div className="flex flex-col w-full">
-            <TopSection />
-            <Body />
-          </div>
-        </div>
+          <div className="bg-black text-[#f0f0f0] sm:min-h-screen lg:h-screen flex">
+      <AdminNav />
+      <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar ">
+        <TopSection />
+        <Body />
       </div>
+    </div>
     </>
   );
 };

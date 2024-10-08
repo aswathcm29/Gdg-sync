@@ -2,10 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import gdgImage from '../assets/images/gdg-bgremove.png';
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 const TopSection = () => {
    const [username, setUsername] = useState('');
    const token = localStorage.getItem('token');
+   const user = useSelector((state) => state.user);
+
+   
+
+   console.log('redux',user);
 
    const fetchUser = async () => {
       try {
@@ -35,7 +42,7 @@ const TopSection = () => {
 
    return (
       <>
-         <div className="w-full flex flex-col md:flex-row justify-between items-center md:h-[3.5rem] p-4 md:p-[3rem] text-white">
+         <div className="w-full flex flex-col md:flex-row justify-between items-center md:h-[3.5rem] md:mb-[1rem] p-4 md:py-[3.5rem] md:px-[2.2rem] text-white">
             <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
                <img src={gdgImage} alt="GDG Logo" className="w-[3rem] h-[2rem] md:w-[3rem] mr-0 md:mr-[1rem]" />
                <span className="text-xl md:text-2xl lg:text-3xl font-semibold">

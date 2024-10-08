@@ -1,0 +1,54 @@
+.rbc-calendar {
+    background-color: #000;
+    color: #f0f0f0;
+    border: none;
+  }
+  
+  .rbc-toolbar {
+    background-color: #1f1f1f;
+    color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  .rbc-month-view, .rbc-time-view {
+    background-color: #121212;
+  }
+  
+  .rbc-event {
+    background-color: #4CAF50 !important; /* Event color */
+    border-radius: 5px;
+    padding: 4px;
+  }
+  
+  .rbc-today {
+    background-color: #333 !important; /* Today's background color */
+  }
+  
+  .rbc-day-slot .rbc-time-slot {
+    border-top: 1px solid #444;
+  }
+  
+  .rbc-timeslot-group {
+    border-top: 1px solid #444;
+  }
+  
+  .rbc-header {
+    background-color: #1f1f1f;
+    color: #fff;
+  }
+  
+  .rbc-selected {
+    background-color: #222 !important;
+    color: #f0f0f0 !important;
+  }
+  
+  .rbc-toolbar button {
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .rbc-toolbar button:hover {
+    background-color: #45a049;
+  }
+  

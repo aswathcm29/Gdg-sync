@@ -8,11 +8,11 @@ import { MdOutlineTimer } from "react-icons/md";
 const EventCard = (props) => {
     return (
       <>
-        <div className="max-w-[400px] rounded-lg bg-transparent text-[#f0f0f0] shadow-sm shadow-blue transition-shadow duration-300">
+        <div className="max-w-[400px] rounded-lg bg-transparent text-[#f0f0f0] shadow-sm shadow-blue hover:translate-y-2  transition-shadow duration-300">
           <div
             className="w-full h-[150px] bg-cover bg-center"
             style={{
-              backgroundImage: `url('http://internovam.com/blog/wp-content/uploads/2017/10/GDG_LIMA_DEVFEST_open-800x429.jpg')`,
+              backgroundImage: `url(${props.image})`,
             }}
           ></div>
           <div className="p-4">

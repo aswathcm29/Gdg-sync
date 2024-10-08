@@ -12,9 +12,15 @@ import AdminLayout from './Layouts/AdminLayout.jsx';
 import UserLayout from './Layouts/UserLayout.jsx'
 import Dashboard from './pages/Admin/Dashboard/Dashboard.jsx'
 import Home from './pages/User/Home/Home.jsx'
-
 import ProtectedRoute  from '../src/helper/ProtectedRoute.js'
 import NotAuthorized from './components/NotAuthorized.jsx'
+import store from './redux/store.js'
+import { Provider } from 'react-redux';
+import CreateEvent from './pages/Admin/Dashboard/CreateEvent.jsx'
+import Profile from './pages/Admin/Profile/Profile.jsx'
+import Calendar from './pages/Admin/Calendar/Calendar.jsx'
+
+
 
 const BrowserRouter = createBrowserRouter([
   {
@@ -42,18 +48,23 @@ const BrowserRouter = createBrowserRouter([
         element: <Dashboard />, 
       },
       {
-        path: "reports",
-        element: <p />, 
+        path: "create",
+        element: <CreateEvent />, 
       },
       {
-        path: "settings",
-        element: <p/>, 
+        path: "profile",
+        element: <Profile/>, 
       },
+      {
+        path:"calendar",
+        element:<Calendar/>
+      }
     ],
   },
   {
     path: "/user",
     element: (
+  
       <ProtectedRoute requiredRole="user">
         <UserLayout /> 
       </ProtectedRoute>
@@ -81,6 +92,8 @@ const BrowserRouter = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <Provider store={store}>
     <RouterProvider router={BrowserRouter} />
+    </Provider>
   </StrictMode>
 );

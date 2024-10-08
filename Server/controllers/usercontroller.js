@@ -22,7 +22,7 @@ const Login =async(req,res)=>{
         if(token==""){
             return res.status(400).json({error:true,message:'Token generation failed'})
         }
-        return res.status(200).json({error:false,message:{text:"Logged in successfully",token:token,role:user.role,email:user.email}})
+        return res.status(200).json({error:false,message:{text:"Logged in successfully",token:token,role:user.role,email:user.email,username:user.username,id:user._id  }})
   }catch(err){
     console.log(err.message)
     return res.status(400).json({error:true , message:err.message})

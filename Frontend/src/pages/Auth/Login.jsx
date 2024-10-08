@@ -5,11 +5,16 @@ import { useEffect, useState } from "react";
 import { Toaster,toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import gdgImage from '../../assets/images/gdg-bgremove.png'
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../redux/slices/userSlice";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   
   
   function getCookieValue(name) {
@@ -52,7 +57,8 @@ const Login = () => {
       });
       if(response.status===200){
       toast.success('Login Successful');
-      const { token, role ,email} = response.data.message;
+      const { token, role ,email,username,id} = response.data.message;
+      dispatch(loginSuccess({ email, username, id, token, role }));
       localStorage.setItem('token', token);
       localStorage.setItem('role', role);
       localStorage.setItem('email', email);

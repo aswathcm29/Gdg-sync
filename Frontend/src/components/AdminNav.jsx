@@ -13,7 +13,7 @@ const AdminNav = () => {
   return (
     <>
 
-      <div className="flex md:h-[100vh] w-[6rem] md:w-[8rem] items-center justify-center sm:shadow-sm sm:shadow-white rounded-r-[3rem] md:rounded-r-[5rem] bg-transparent relative">
+      <div className=" flex fixed md:h-screen w-[6rem] md:w-[8rem] items-center justify-center sm:shadow-sm sm:shadow-white rounded-r-[3rem] md:rounded-r-[5rem] bg-transparent">
         <div className="md:hidden absolute top-4 left-4 z-50">
           <button
             onClick={toggleMenu}
@@ -37,7 +37,7 @@ const AdminNav = () => {
           </NavLink>
 
           <NavLink
-            to="/dashboard/track"
+            to="/admin/calendar"
             className={({ isActive }) =>
               isActive
                 ? "flex flex-col gap-y-[0.5rem] justify-center items-center p-[1rem] text-blue-400"
@@ -49,7 +49,7 @@ const AdminNav = () => {
           </NavLink>
 
           <NavLink
-            to="/dashboard/profile"
+            to="/admin/profile"
             className={({ isActive }) =>
               isActive
                 ? "flex flex-col gap-y-[0.5rem] justify-center items-center p-[1rem] text-blue-400"
@@ -78,7 +78,7 @@ const AdminNav = () => {
           </NavLink>
 
           <NavLink
-            to="/dashboard/track"
+            to="/admin/calendar"
             onClick={toggleMenu}
             className={({ isActive }) =>
               isActive
@@ -91,7 +91,7 @@ const AdminNav = () => {
           </NavLink>
 
           <NavLink
-            to="/dashboard/profile"
+            to="/admin/profile"
             onClick={toggleMenu}
             className={({ isActive }) =>
               isActive
