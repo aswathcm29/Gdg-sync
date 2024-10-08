@@ -4,14 +4,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import Login from './pages/Auth/Login.jsx'
+import Signup from './pages/Auth/Signup.jsx'
 import App from './App.jsx'
 import './index.css'
-import Login from './pages/Auth/login.jsx'
-import Home from './pages/User/Home/Home.jsx'
-import Signup from './pages/Auth/Signup.jsx'
-import Dashboard from './pages/Admin/Dashboard/Dashboard.jsx'
+import AdminLayout from './Layouts/AdminLayout.jsx';
 import UserLayout from './Layouts/UserLayout.jsx'
-import AdminLayout from './Layouts/AdminLayout.jsx'
+import Dashboard from './pages/Admin/Dashboard/Dashboard.jsx'
+import Home from './pages/User/Home/Home.jsx'
+
 import ProtectedRoute  from '../src/helper/ProtectedRoute.js'
 import NotAuthorized from './components/NotAuthorized.jsx'
 
