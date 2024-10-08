@@ -4,7 +4,7 @@ import { MdOutlineEvent } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
-import EventCard from "../../../components/eventCard";
+import EventCard from "../../../components/EventCard";;
 import axios from "axios";
 import bluebg from '../../../assets/images/blue-bg.png'
 
