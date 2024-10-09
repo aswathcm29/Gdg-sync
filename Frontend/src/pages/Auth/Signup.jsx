@@ -66,7 +66,7 @@ const Signup = () => {
   };
   
   return (
-    <div className="relative h-[100vh] flex flex-col items-center justify-center bg-black">
+    <div className="relative h-[100vh] flex flex-col items-center justify-center bg-black p-[1rem]">
     <div className="absolute flex  flex-row-reverse items-center justify-between opacity-10 pointer-events-none">
       {/* <p className="hidden lg:block text-[6rem] text-white text-right p-[1rem]">Get your GDG events managed </p> */}
       <img src={gdgImage} className="w-[100%] hidden md:block"></img>

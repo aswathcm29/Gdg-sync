@@ -57,7 +57,7 @@ const Body = () => {
 };
 
 
-const Profile = () => {
+const Event = () => {
   return (
     <>
     <div className="bg-black text-[#f0f0f0] sm:min-h-screen lg:h-screen flex">
@@ -71,4 +71,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Event

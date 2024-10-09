@@ -73,13 +73,10 @@ const Login = () => {
   
 
   return (
-    <div className="relative h-[100vh] flex flex-col items-center justify-center bg-black">
+    <div className="relative h-[100vh] flex flex-col items-center justify-center min-h-screen p-[1rem] bg-black">
     <div className="absolute flex  flex-row-reverse items-center justify-between opacity-10 pointer-events-none">
-      {/* <p className="hidden lg:block text-[6rem] text-white text-right p-[1rem]">Get your GDG events managed </p> */}
       <img src={gdgImage} className="w-[100%] hidden md:block"></img>
       <img src={gdgImage} className="w-[100%]"></img>
-
-      
     </div>
     <div className="relative z-10 container shadow-sm shadow-white flex flex-col">
       <div className="heading">Sign In</div>

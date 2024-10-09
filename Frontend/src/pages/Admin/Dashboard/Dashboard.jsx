@@ -4,24 +4,25 @@ import { MdOutlineEvent } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
-import EventCard from "../../../components/EventCard";;
+import EventCard from "../../../components/eventCard";
 import axios from "axios";
 import lap from '../../../assets/images/events-boook.png'
 import { useNavigate } from "react-router-dom";
 import getCookieValue from "../../../utils/token";
+import CardShimmer from "../../../components/CardShimmer";
 
 const Body = () => {
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const navigate = useNavigate();
 
-  const createPage=()=>{
+  const createPage = () => {
     navigate('/admin/create');
-  }
+  };
 
   const emailID = localStorage.getItem("email");
-  
   const token = getCookieValue("token");
 
   const fetchEvents = async () => {
@@ -39,6 +40,8 @@ const Body = () => {
       setEvents(res.data.events);
     } catch (err) {
       console.log(err.message);
+    } finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 
@@ -50,7 +53,7 @@ const Body = () => {
     const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesDate = selectedDate
       ? new Date(event.date).toLocaleDateString() === new Date(selectedDate).toLocaleDateString()
-      : true; 
+      : true;
     return matchesSearch && matchesDate;
   });
 
@@ -76,28 +79,28 @@ const Body = () => {
   };
 
   return (
-    <div className="flex flex-col w-full justify-center items-center px-[1rem] h-full ">
-    <div className=" p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row items-center  shadow-sm shadow-white rounded-md">
-  <img src={lap} className="w-[20rem] md:w-[25rem] lg:w-[30rem]" />
-  <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-y-4 lg:gap-y-6">
-    <span className="text-3xl md:text-5xl font-bold w-full tracking-wide">
-      <span className="text-blue">G<span className="text-red">D</span><span className="text-yellow">G</span><span className="text-green">-</span>sync</span>
-    </span>
-    <p className="text-lg md:text-xl text-gray-600 w-[20rem] lg:w-[24rem]">
-      Synchronize all your events with ease and manage them effortlessly.
-    </p>
-  </div>
+    <div className="flex flex-col w-full justify-center items-center px-[1rem] h-full">
+      <div className="p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row items-center shadow-sm shadow-white rounded-md">
+        <img src={lap} className="w-[20rem] md:w-[25rem] lg:w-[30rem]" />
+        <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-y-4 lg:gap-y-6">
+          <span className="text-3xl md:text-5xl font-bold w-full tracking-wide">
+            <span className="text-blue">G<span className="text-red">D</span><span className="text-yellow">G</span><span className="text-green">-</span>sync</span>
+          </span>
+          <p className="text-lg md:text-xl text-gray-600 w-[20rem] lg:w-[24rem]">
+            Synchronize all your events with ease and manage them effortlessly.
+          </p>
+        </div>
+        <div className="mt-6 lg:mt-0 md:flex md:justify-end md:w-full md:mr-[3rem]">
+          <button
+            onClick={() => createPage()}
+            className="flex items-center gap-x-[0.5rem] px-6 py-3 md:px-8 md:py-4 bg-green-500 hover:bg-green-600 text-white rounded-md shadow-md transition-all duration-300 ease-in-out"
+          >
+            <MdOutlineEvent className="text-2xl text-white" />
+            <span className="text-lg md:text-xl">Create New Event</span>
+          </button>
+        </div>
+      </div>
 
-  <div className="mt-6 lg:mt-0 md:flex md:justify-end md:w-full md:mr-[3rem]">
-    <button
-      onClick={() => {createPage()}}
-      className="flex items-center gap-x-[0.5rem] px-6 py-3 md:px-8 md:py-4 bg-green-500 hover:bg-green-600 text-white rounded-md shadow-md transition-all duration-300 ease-in-out"
-    >
-      <MdOutlineEvent className="text-2xl text-white" />
-      <span className="text-lg md:text-xl">Create New Event</span>
-    </button>
-  </div>
-</div>
       <div className="flex flex-col w-full p-[1rem] gap-y-[1rem]">
         <div className="flex justify-between items-center md:flex-row flex-col gap-y-[1rem]">
           <span className="text-2xl">Your events</span>
@@ -119,17 +122,19 @@ const Body = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-[2rem] gap-y-[2rem]">
-          {currentEvents.map((event) => (
-            <EventCard
-              key={event._id}
-              title={event.title}
-              description={event.description}
-              date={new Date(event.date).toLocaleDateString()}
-              time={event.time}
-              image={event.image}
-              venue={event.location}
-            />
-          ))}
+          {loading
+            ? Array.from({ length: 4 }).map((_, index) => <CardShimmer key={index} />) 
+            : currentEvents.map((event) => (
+                <EventCard
+                  key={event._id}
+                  title={event.title}
+                  description={event.description}
+                  date={new Date(event.date).toLocaleDateString()}
+                  time={event.time}
+                  image={event.image}
+                  venue={event.location}
+                />
+              ))}
         </div>
 
         <div className="flex justify-end gap-x-[1rem] items-center">
@@ -157,6 +162,7 @@ const Body = () => {
     </div>
   );
 };
+
 
 const Dashboard = () => {
   return (

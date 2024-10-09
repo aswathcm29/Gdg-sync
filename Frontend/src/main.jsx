@@ -17,8 +17,8 @@ import NotAuthorized from './components/NotAuthorized.jsx'
 import store from './redux/store.js'
 import { Provider } from 'react-redux';
 import CreateEvent from './pages/Admin/Dashboard/CreateEvent.jsx'
-import Profile from './pages/Admin/Profile/Profile.jsx'
 import Calendar from './pages/Admin/Calendar/Calendar.jsx'
+import Event from './pages/Admin/Events/Profile.jsx'
 
 
 
@@ -52,8 +52,8 @@ const BrowserRouter = createBrowserRouter([
         element: <CreateEvent />, 
       },
       {
-        path: "profile",
-        element: <Profile/>, 
+        path: "events",
+        element: <Event/>, 
       },
       {
         path:"calendar",

@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { SiGooglehome } from "react-icons/si";
-import { FaUser, FaCalendarAlt, FaBars, FaTimes } from "react-icons/fa";
+import { FaCalendarAlt, FaBars, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { RiCalendarEventFill } from "react-icons/ri";
+
+
+
 
 const AdminNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,15 +53,15 @@ const AdminNav = () => {
           </NavLink>
 
           <NavLink
-            to="/admin/profile"
+            to="/admin/events"
             className={({ isActive }) =>
               isActive
                 ? "flex flex-col gap-y-[0.5rem] justify-center items-center p-[1rem] text-blue-400"
                 : "flex flex-col gap-y-[0.5rem] justify-center items-center p-[1rem] text-white hover:text-blue-400"
             }
           >
-            <FaUser className="text-3xl md:text-4xl" />
-            <span className="text-sm md:text-md">Profile</span>
+            <RiCalendarEventFill  className="text-3xl md:text-4xl" />
+            <span className="text-sm md:text-md">Events</span>
           </NavLink>
         </div>
       </div>
@@ -91,7 +95,7 @@ const AdminNav = () => {
           </NavLink>
 
           <NavLink
-            to="/admin/profile"
+            to="/admin/events"
             onClick={toggleMenu}
             className={({ isActive }) =>
               isActive
@@ -99,8 +103,8 @@ const AdminNav = () => {
                 : "flex flex-col gap-y-[0.5rem] justify-center items-center p-[1rem] text-white hover:text-blue-400"
             }
           >
-            <FaUser className="text-6xl mb-2" />
-            <span className="text-2xl">Profile</span>
+            <RiCalendarEventFill  className="text-6xl mb-2" />
+            <span className="text-2xl">Events</span>
           </NavLink>
         </div>
       )}
