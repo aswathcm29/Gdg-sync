@@ -4,12 +4,12 @@ import { MdOutlineEvent } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
-import EventCard from "../../../components/eventCard";
 import axios from "axios";
 import lap from '../../../assets/images/events-boook.png'
 import { useNavigate } from "react-router-dom";
 import getCookieValue from "../../../utils/token";
 import CardShimmer from "../../../components/CardShimmer";
+import EventCard from "../../../components/eventCard";
 
 const Body = () => {
   const [events, setEvents] = useState([]);
