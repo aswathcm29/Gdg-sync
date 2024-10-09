@@ -9,7 +9,7 @@ import lap from '../../../assets/images/events-boook.png'
 import { useNavigate } from "react-router-dom";
 import getCookieValue from "../../../utils/token";
 import CardShimmer from "../../../components/CardShimmer";
-import EventCard from "../../../components/eventCard";
+import EventCard from "../../../components/EventCard";
 
 const Body = () => {
   const [events, setEvents] = useState([]);
