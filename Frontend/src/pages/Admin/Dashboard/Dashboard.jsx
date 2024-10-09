@@ -41,7 +41,7 @@ const Body = () => {
     } catch (err) {
       console.log(err.message);
     } finally {
-      setLoading(false); // Stop loading once data is fetched
+      setLoading(false); 
     }
   };
 
@@ -79,7 +79,7 @@ const Body = () => {
   };
 
   return (
-    <div className="flex flex-col w-full justify-center items-center px-[1rem] h-full">
+    <div className="flex flex-col w-full justify-center items-center px-[1rem] ">
       <div className="p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row items-center shadow-sm shadow-white rounded-md">
         <img src={lap} className="w-[20rem] md:w-[25rem] lg:w-[30rem]" />
         <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-y-4 lg:gap-y-6">
@@ -167,7 +167,7 @@ const Body = () => {
 const Dashboard = () => {
   return (
     <>
-          <div className="bg-black text-[#f0f0f0] sm:min-h-screen lg:h-screen flex">
+      <div className="bg-black text-[#f0f0f0] min-h-screen lg:h-screen flex">
       <AdminNav />
       <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar ">
         <TopSection />

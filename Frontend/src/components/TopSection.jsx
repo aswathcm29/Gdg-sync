@@ -36,7 +36,7 @@ const TopSection = () => {
 
    const handleLogout = () => {
       localStorage.removeItem('token');
-      document.cookie = "token='';max-age=0";
+      document.cookie = "token=;max-age=0;path=/";
       navigate('/login');
    };
 

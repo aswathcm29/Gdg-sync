@@ -18,7 +18,9 @@ import store from './redux/store.js'
 import { Provider } from 'react-redux';
 import CreateEvent from './pages/Admin/Dashboard/CreateEvent.jsx'
 import Calendar from './pages/Admin/Calendar/Calendar.jsx'
-import Event from './pages/Admin/Events/Profile.jsx'
+import Event from './pages/Admin/Events/Event.jsx'
+import EventView from './pages/Admin/EventView/EventView.jsx'
+import UpdateEvent from './pages/Admin/UpdateEvent/UpdateEvent.jsx'
 
 
 
@@ -58,6 +60,14 @@ const BrowserRouter = createBrowserRouter([
       {
         path:"calendar",
         element:<Calendar/>
+      },
+      {
+          path: "event/:id",
+          element: <EventView />,
+      },
+      {
+        path:'update/event/:id',
+        element : <UpdateEvent/>
       }
     ],
   },

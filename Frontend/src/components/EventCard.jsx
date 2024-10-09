@@ -2,13 +2,16 @@
 import { BsCalendarDate } from "react-icons/bs";
 import { GrLocationPin } from "react-icons/gr";
 import { MdOutlineTimer } from "react-icons/md";
+import { motion } from "framer-motion";
 
 
 
 const EventCard = (props) => {
     return (
       <>
-        <div className="max-w-[400px] rounded-lg bg-transparent text-[#f0f0f0] shadow-sm shadow-blue hover:translate-y-2  transition-shadow duration-300">
+        <motion.div
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.5, bounce: 0.5 }} className="max-w-[400px] rounded-lg bg-transparent text-[#f0f0f0] shadow-sm shadow-blue hover:translate-y-2  transition-shadow duration-300">
           <div
             className="w-full h-[150px] bg-cover bg-center"
             style={{
@@ -42,7 +45,7 @@ const EventCard = (props) => {
                 </span>
               </p>
             </div>
-            <a
+            {/* <a
               href="#"
               className="inline-flex items-center mt-4 text-white text-sm font-medium gap-1.5 bg-blue-600 px-3 py-1.5 rounded-md hover:bg-blue-700 transition-all duration-300"
             >
@@ -50,9 +53,9 @@ const EventCard = (props) => {
               <span aria-hidden="true" className="transition-transform duration-300">
                 →
               </span>
-            </a>
+            </a> */}
           </div>
-        </div>
+        </motion.div>
       </>
     );
   };

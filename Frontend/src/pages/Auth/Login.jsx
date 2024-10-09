@@ -62,6 +62,7 @@ const Login = () => {
       localStorage.setItem('token', token);
       localStorage.setItem('role', role);
       localStorage.setItem('email', email);
+      localStorage.setItem('username',username)
       document.cookie = `token = ${response.data.message.token}`
       navigate(role === 'admin' ? '/admin/dashboard' : '/user/home');
       }
