@@ -81,7 +81,7 @@ const Body = () => {
           <input className='px-[3rem] sm:px-[10rem] py-[1rem] rounded-full bg-transparent shadow-sm shadow-green'
           placeholder='Search for your events'></input>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-[1rem]">
         {events.map((event) => (
           <FlatCards
           key={event._id}

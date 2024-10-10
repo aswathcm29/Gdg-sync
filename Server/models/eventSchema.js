@@ -35,8 +35,15 @@ const eventSchema = new mongoose.Schema({
         default:'upcoming'
     },
     participants: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Participant'
+        username: {
+            type: String,
+            required: true
+        },
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        }
     }],
 })
 

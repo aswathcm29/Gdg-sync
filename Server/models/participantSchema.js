@@ -10,6 +10,11 @@ const participantSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    eventId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Event',
+        required: true
+    },
     enrolledAt: {
         type: Date,
         default: Date.now

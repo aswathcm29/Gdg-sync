@@ -20,7 +20,7 @@ const EventCard = (props) => {
           ></div>
           <div className="p-4">
             <a href="#">
-              <span className="text-lg leading-7 block">{props.title}</span>
+              <span className="text-lg leading-7 block truncate">{props.title}</span>
             </a>
             <p className="mt-2 text-[#6B7280] text-sm leading-5 truncate">
               {props.description}
@@ -41,7 +41,7 @@ const EventCard = (props) => {
               <p className="font-medium text-sm mt-1">
                 <span className="text-gray-400 flex items-center gap-x-[1rem]">
                   <GrLocationPin className="text-xl text-red" />
-                  <span>{props.venue}</span>
+                  <span className="truncate">{props.venue}</span>
                 </span>
               </p>
             </div>

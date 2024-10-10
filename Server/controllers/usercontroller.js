@@ -1,4 +1,5 @@
 const {User} = require('../models/userSchema')
+const {Participant} = require('../models/participantSchema');
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const {generateToken} = require('../utils/helper.service')
@@ -78,5 +79,6 @@ const getUser = (req, res) =>{
        res.status(400).json({error:true,message:err.message})
       }
 }
+
 
 module.exports = {Login,Signup,getUser}

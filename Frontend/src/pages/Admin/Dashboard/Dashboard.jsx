@@ -1,26 +1,22 @@
+/* eslint-disable react/jsx-key */
 import AdminNav from "../../../components/AdminNav";
 import TopSection from "../../../components/TopSection";
-import { MdOutlineEvent } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
 import axios from "axios";
 import lap from '../../../assets/images/events-boook.png'
-import { useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import getCookieValue from "../../../utils/token";
 import CardShimmer from "../../../components/CardShimmer";
 import EventCard from "../../../components/EventCard";
 
 const Body = () => {
   const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true); 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
-  const navigate = useNavigate();
 
-  const createPage = () => {
-    navigate('/admin/create');
-  };
 
   const emailID = localStorage.getItem("email");
   const token = getCookieValue("token");
@@ -78,35 +74,29 @@ const Body = () => {
     }
   };
 
+
+
   return (
-    <div className="flex flex-col w-full justify-center items-center px-[1rem] ">
-      <div className="p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row items-center shadow-sm shadow-white rounded-md">
+    <div className="flex flex-col w-full justify-center items-center px-[1rem]">
+      <div className="p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row-reverse lg:justify-around items-center shadow-sm shadow-white rounded-md">
         <img src={lap} className="w-[20rem] md:w-[25rem] lg:w-[30rem]" />
-        <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-y-4 lg:gap-y-6">
-          <span className="text-3xl md:text-5xl font-bold w-full tracking-wide">
-            <span className="text-blue">G<span className="text-red">D</span><span className="text-yellow">G</span><span className="text-green">-</span>sync</span>
+        <div className="flex flex-col justify-center items-center lg:items-start lg:justify-between text-center lg:text-center gap-y-4 lg:gap-y-6">
+          <span className="text-3xl md:text-7xl font-bold w-full tracking-wide">
+            <span>Gdg <span className="text-green"></span><span className="text-blue">sync</span></span>
           </span>
           <p className="text-lg md:text-xl text-gray-600 w-[20rem] lg:w-[24rem]">
             Synchronize all your events with ease and manage them effortlessly.
           </p>
         </div>
-        <div className="mt-6 lg:mt-0 md:flex md:justify-end md:w-full md:mr-[3rem]">
-          <button
-            onClick={() => createPage()}
-            className="flex items-center gap-x-[0.5rem] px-6 py-3 md:px-8 md:py-4 bg-green-500 hover:bg-green-600 text-white rounded-md shadow-md transition-all duration-300 ease-in-out"
-          >
-            <MdOutlineEvent className="text-2xl text-white" />
-            <span className="text-lg md:text-xl">Create New Event</span>
-          </button>
-        </div>
+      
       </div>
 
-      <div className="flex flex-col w-full p-[1rem] gap-y-[1rem]">
+      <div className="flex flex-col w-full py-[1rem] gap-y-[1rem]">
         <div className="flex justify-between items-center md:flex-row flex-col gap-y-[1rem]">
-          <span className="text-2xl">Your events</span>
+          <span className="text-3xl">Your <span className="text-blue">events</span></span>
           <div className="flex gap-x-[1rem]">
             <input
-              className="bg-transparent shadow-sm shadow-white rounded-md p-[0.8rem] w-[80%] sm:w-auto"
+              className="bg-transparent border-gray-200 border-2 rounded-md p-[0.8rem] w-[80%] sm:w-auto"
               placeholder="Search for your events"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -125,15 +115,18 @@ const Body = () => {
           {loading
             ? Array.from({ length: 4 }).map((_, index) => <CardShimmer key={index} />) 
             : currentEvents.map((event) => (
-                <EventCard
-                  key={event._id}
-                  title={event.title}
-                  description={event.description}
-                  date={new Date(event.date).toLocaleDateString()}
-                  time={event.time}
-                  image={event.image}
-                  venue={event.location}
-                />
+              <Link to={`/admin/event/${event._id}`}> 
+              <EventCard
+              key={event._id}
+              title={event.title}
+              description={event.description}
+              date={new Date(event.date).toLocaleDateString()}
+              time={event.time}
+              image={event.image}
+              venue={event.location}
+              />
+              </Link>  
+             
               ))}
         </div>
 

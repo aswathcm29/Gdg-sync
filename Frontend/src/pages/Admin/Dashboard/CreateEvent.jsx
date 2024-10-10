@@ -92,8 +92,8 @@ const Body = () => {
   };
 
   return (
-    <div className="flex flex-col p-[1rem]">
-      <div className="p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full lg:justify-around flex flex-col-reverse lg:flex-row items-center bg-transparent shadow-sm shadow-white rounded-md">
+    <div className="flex flex-col  p-[1rem]">
+      <div className="p-[2rem] sm:p-[2rem] gap-y-[2rem] w-full lg:justify-around flex flex-col-reverse lg:flex-row items-center bg-transparent shadow-sm shadow-white rounded-md">
         <img src={flippedcolors} className="w-[25rem] lg:block md:w-[20rem] hidden" />
         <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-y-4 lg:gap-y-6">
           <span className="text-3xl md:text-5xl font-bold w-full text-center">
@@ -106,13 +106,13 @@ const Body = () => {
         <img src={colors} className="w-[25rem] lg:w-[20rem]" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-transparent pt-[1rem] md:p-6 rounded-md shadow-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-transparent pt-[1rem] md:pt-[3rem] h-full justify-center items-center rounded-md shadow-lg">
         <div className="col-span-1">
           <input
             type="text"
             name="title"
             placeholder="Event Title"
-            className="w-full p-3 rounded-md bg-transparent shadow-sm shadow-white text-white"
+            className="w-full p-3 rounded-md bg-transparent shadow-sm shadow-white border-gray-400 border-b-2 text-white"
             value={formData.title}
             onChange={handleChange}
           />
@@ -121,7 +121,7 @@ const Body = () => {
           <input
             type="date"
             name="date"
-            className="w-full p-3 bg-transparent shadow-sm shadow-white text-white"
+            className="w-full p-3 bg-transparent shadow-sm shadow-white border-gray-400 border-b-2 rounded-md text-white"
             value={formData.date}
             onChange={handleChange}
           />
@@ -130,7 +130,7 @@ const Body = () => {
           <textarea
             name="description"
             placeholder="Event Description"
-            className="w-full p-3 bg-transparent shadow-sm shadow-white text-white"
+            className="w-full p-3 bg-transparent shadow-sm shadow-white border-gray-400 border-b-2 rounded-md text-white"
             rows="4"
             value={formData.description}
             onChange={handleChange}
@@ -141,7 +141,7 @@ const Body = () => {
             type="time"
             name="time"
             placeholder="Start Time"
-            className="w-full p-3 bg-transparent shadow-sm shadow-white text-white"
+            className="w-full p-3 bg-transparent shadow-sm shadow-white border-gray-400 border-b-2 rounded-md text-white"
             value={formData.time}
             onChange={handleChange}
           />
@@ -151,7 +151,7 @@ const Body = () => {
             type="text"
             name="location"
             placeholder="Event Location"
-            className="w-full p-3 bg-transparent shadow-sm shadow-white text-white"
+            className="w-full p-3 bg-transparent shadow-sm border-gray-400 border-b-2 rounded-md shadow-white text-white"
             value={formData.location}
             onChange={handleChange}
           />
@@ -162,7 +162,7 @@ const Body = () => {
             type="text"
             name="image"
             placeholder="Cover Image URL"
-            className="w-full p-3 rounded-md bg-transparent shadow-sm shadow-white text-white"
+            className="w-full p-3 rounded-md bg-transparent shadow-sm border-gray-400 border-b-2 shadow-white text-white"
             value={formData.image}
             onChange={handleChange}
           />

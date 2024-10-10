@@ -119,7 +119,7 @@ const Body = () => {
 
     return (
         <div className="flex flex-col p-[1rem]">
-            <div className="p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full lg:justify-around flex flex-col-reverse lg:flex-row items-center bg-transparent shadow-sm shadow-white rounded-md">
+            <div className="p-[2rem] sm:p-[2rem] gap-y-[2rem] w-full lg:justify-around flex flex-col-reverse lg:flex-row items-center bg-transparent shadow-sm shadow-white rounded-md">
                 <img src={flippedcolors} className="w-[25rem] lg:block md:w-[20rem] hidden" />
                 <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-y-4 lg:gap-y-6">
                     <span className="text-3xl md:text-5xl font-bold w-full text-center">
@@ -132,7 +132,7 @@ const Body = () => {
                 <img src={colors} className="w-[25rem] lg:w-[20rem]" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-transparent pt-[1rem] md:p-6 rounded-md shadow-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-transparent pt-[1rem] md:pt-[4rem] rounded-md shadow-lg">
                 <div className="col-span-1">
                     <input
                         type="text"

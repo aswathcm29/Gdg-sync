@@ -10,7 +10,7 @@ const FlatCards = (props) => {
   return (
     <div className="">
       <motion.div
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.5, bounce: 0.5 }}
         className="bg-transparent shadow-sm shadow-white text-white p-6 rounded-lg transition-shadow duration-300"
       >
