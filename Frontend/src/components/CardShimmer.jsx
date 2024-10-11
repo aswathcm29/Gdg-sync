@@ -21,7 +21,7 @@ const CardShimmer = () => {
             <div className="h-4 bg-gray-600 rounded-md w-3/4"></div>
           </div>
         </div>
-        <div className="mt-4 h-8 bg-gray-700 rounded-md w-1/2"></div>
+  
       </div>
     </div>
   )

@@ -1,36 +1,59 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import 'react-big-calendar/lib/css/react-big-calendar.css'; // Base styles for the calendar
+import axios from 'axios';
+import 'react-big-calendar/lib/css/react-big-calendar.css'; 
 import AdminNav from '../../../components/AdminNav';
 import TopSection from '../../../components/TopSection';
-import './customCalendarStyles.css'; // Custom CSS to match your theme
+import './customCalendarStyles.css';
+import getCookieValue from '../../../utils/token';
 
-// Initialize localizer for moment.js
 const localizer = momentLocalizer(moment);
 
-const eventsData = [
-  {
-    id: 1,
-    title: "Project Meeting",
-    start: new Date(2024, 9, 12, 10, 0), // Example date (12 Oct 2024)
-    end: new Date(2024, 9, 12, 11, 0),
-  },
-  {
-    id: 2,
-    title: "Code Review",
-    start: new Date(2024, 9, 14, 14, 0),
-    end: new Date(2024, 9, 14, 15, 30),
-  },
-];
-
 const Body = () => {
-  const [events, setEvents] = useState(eventsData);
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleSelectSlot = ({ start, end }) => {
+
+
+  const emailID = localStorage.getItem("email");
+  const token = getCookieValue("token");
+
+  const fetchEvents = async () => {
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}events/getEventsUser`,
+        { email: emailID },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(res.data.events); 
+      setEvents(res.data.events.map(event => ({
+        start: new Date(event.date),
+        end: new Date(event.date), 
+        title: event.title,
+        id: event.id, 
+      })));
+    } catch (err) {
+      console.error('Error fetching events:', err.message);
+    } finally {
+      setLoading(false); 
+    }
+  };
+
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  const handleSelectSlot = ({ start }) => {
     const title = window.prompt('New Event name');
     if (title) {
-      setEvents([...events, { start, end, title }]);
+      setEvents([...events, { start, title, id: events.length + 1 }]); 
     }
   };
 
@@ -41,24 +64,27 @@ const Body = () => {
     }
   };
 
+
+
   return (
     <div className="p-4">
       <h1 className="text-4xl font-bold mb-6">Calendar</h1>
-      <BigCalendar
-        localizer={localizer}
-        events={events}
-        selectable
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 500 }}
-        onSelectSlot={handleSelectSlot}
-        onSelectEvent={handleSelectEvent}
-        eventPropGetter={() => ({
-          style: { backgroundColor: '#4CAF50', color: '#fff' }, // Customize event style
-        })}
-        views={['month', 'week', 'day']}
-        defaultView="month"
-      />
+      {loading ? (
+        <p>Loading events...</p> 
+      ) : (
+        <BigCalendar
+          localizer={localizer}
+          events={events}
+          selectable
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: 650 }}
+          onSelectSlot={handleSelectSlot}
+          onSelectEvent={handleSelectEvent}
+          views={['month', 'week', 'day']}
+          defaultView="month"
+        />
+      )}
     </div>
   );
 };

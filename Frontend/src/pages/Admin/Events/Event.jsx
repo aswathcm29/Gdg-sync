@@ -71,7 +71,7 @@ const Body = () => {
           <span className="text-3xl md:text-5xl font-bold w-full text-center">
             <span>Hey <span className='text-blue'>{username} !</span></span>
           </span>
-          <p className="text-lg md:text-xl text-gray-600 w-[20rem] text-center lg:w-[24rem]">
+          <p className="text-lg md:text-xl text-gray-400 w-[20rem] text-center lg:w-[24rem]">
             You can view your events here.
           </p>
         </div>

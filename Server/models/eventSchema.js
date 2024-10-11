@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const eventSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     description: {
         type: String,
@@ -34,6 +35,10 @@ const eventSchema = new mongoose.Schema({
         enum: ['upcoming','completed','cancelled'],
         default:'upcoming'
     },
+    tags:{
+        type: [String],
+        required:true
+    },
     participants: [{
         username: {
             type: String,
@@ -41,7 +46,6 @@ const eventSchema = new mongoose.Schema({
         },
         id: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
             required: true
         }
     }],

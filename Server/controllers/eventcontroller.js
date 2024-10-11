@@ -5,13 +5,16 @@ const { User } = require('../models/userSchema');
 
 const createEvent = async (req,res)=>{
     try{
-        const {title,description,date,time,location,image} = req.body;
+        const {title,description,date,time,location,image,tags} = req.body;
         if(req.user.role!='admin'){
             return res.status(400).json({error:true,message:'Unauthorized'})
         }
-        console.log(req.user.email)
-        if(!title || !description || !date || !time || !location){
+        if(!title || !description || !date || !time || !location || !tags){
             return res.status(400).json({error:true,message:'Enter all fields'})
+        }
+        const checkEvent = await Event.findOne({title});
+        if(checkEvent){
+            return res.status(400).json({error:true,message:'Event already exists'})
         }
         const event = await Event.create({
             title,
@@ -20,6 +23,7 @@ const createEvent = async (req,res)=>{
             time,
             location,
             image,
+            tags,   
             organiser : req.user.email
         })
         return res.status(200).json({error:false,message:'Event created successfully',event})
@@ -43,6 +47,9 @@ const getEvents = async(req,res)=>{
 const getEvent = async(req,res)=>{
     try{
         const event = await Event.findById(req.params.id);
+        if(!event){
+            return res.status(404).json({error:true,message:'Event not found'})
+        }
         return res.status(200).json({error:false,message:'Event fetched successfully',event})
     }catch(err){
         console.log(err.message)
