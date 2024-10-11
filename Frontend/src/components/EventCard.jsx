@@ -45,7 +45,7 @@ const EventCard = (props) => {
           <p className="font-medium text-sm mt-1">
           <span className="text-gray-400 flex items-center gap-x-[1rem]">
             <MdOutlineTimer className="text-xl text-yellow" />
-            <span>{props.time}</span>
+            <span>{props.time} hrs</span>
           </span>
           </p>
           <p className="font-medium text-sm mt-1">

@@ -6,31 +6,15 @@ import { useSelector } from "react-redux";
 
 
 const TopSection = () => {
-   const [username, setUsername] = useState('');
    const token = localStorage.getItem('token');
+   const username = localStorage.getItem('username');
    const user = useSelector((state) => state.user);
 
-   
 
-   console.log('redux',user);
 
-   const fetchUser = async () => {
-      try {
-         const res = await axios.get(`${import.meta.env.VITE_BASE_URL}users/getUser`, {
-            headers: {
-               'Authorization': `Bearer ${token}`,
-            },
-         });
-         console.log(res);
-         setUsername(res.data.message.username);
-      } catch (err) {
-         console.log(err.message);
-      }
-   };
 
-   useEffect(() => {
-      fetchUser();
-   }, [token]);
+
+
 
    const navigate = useNavigate();
 
@@ -49,7 +33,7 @@ const TopSection = () => {
             <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
                <img src={gdgImage} alt="GDG Logo" className="w-[3rem] h-[2rem] md:w-[3rem] mr-0 md:mr-[1rem]" />
                <span className="text-xl md:text-2xl lg:text-3xl font-semibold">
-                  Hello <span className="text-blue">{user.username}!</span>
+                  Hello <span className="text-blue">{username}!</span>
                </span>
             </div>
             <div className="flex gap-x-[2rem]">

@@ -90,5 +90,23 @@ const getEventsbyUser = async (req, res) => {
     }
 };
 
+const updateStatus = async(req,res)=>{
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+        if (!['upcoming', 'completed', 'cancelled'].includes(status)) {
+            return res.status(400).json({ error: true, message: 'Invalid status' });
+        }
+        const event = await Event.findByIdAndUpdate(id, { status }, { new: true });
+        if (!event) {
+            return res.status(404).json({ error: true, message: 'Event not found' });
+        }
+        return res.status(200).json({ error: false, message: 'Status updated successfully', event });
+    } catch (err) {
+        console.log(err.message);
+        return res.status(400).json({ error: true, message: err.message });
+    }
+} 
+
 
 module.exports = {createEvent,getEvents,getEvent,updateEvent,deleteEvent,getEventsbyUser}
