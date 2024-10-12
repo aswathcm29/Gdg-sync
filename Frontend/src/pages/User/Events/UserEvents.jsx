@@ -8,7 +8,6 @@ import getCookieValue from "../../../utils/token";
 import TopSection from '../../../components/TopSection';
 import AdminNav from '../../../components/AdminNav';
 import FlatCards from '../../../components/FlatCards';
-import UserNav from '../../../components/UserNav';
 
 const Body = () => {
   const token = getCookieValue('token');
@@ -26,7 +25,8 @@ const Body = () => {
   const fetchEvents = async () => {
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}events/getAllEvents`,
+        `${import.meta.env.VITE_BASE_URL}events/getEventsUser`,
+        { email: emailID },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -134,11 +134,11 @@ const Body = () => {
   );
 };
 
-const Event = () => {
+const UserEvents = () => {
   return (
     <>
       <div className="bg-black text-[#f0f0f0] min-h-screen lg:h-screen flex">
-        <UserNav />
+        <AdminNav />
         <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar">
           <TopSection />
           <Body />
@@ -148,4 +148,4 @@ const Event = () => {
   );
 }
 
-export default Event;
+export default UserEvents;

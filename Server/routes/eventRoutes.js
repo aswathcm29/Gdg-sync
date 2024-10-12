@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const { getEvents, getEvent, createEvent, updateEvent, deleteEvent,getEventsbyUser } = require('../controllers/eventcontroller');
-const { applyEvent, getParticipantByEvent } = require('../controllers/participantControllers');
+const { getEvents, getEvent, createEvent, updateEvent, deleteEvent,getEventsbyUser, getAllEvents } = require('../controllers/eventcontroller');
+const { applyEvent, getParticipantByEvent, UnApplyEvent } = require('../controllers/participantControllers');
 const { checkUser } = require('../middlewares/auth');
 
 router.get('/getEvents',checkUser, getEvents);
@@ -12,6 +12,8 @@ router.delete('/deleteEvent/:id',checkUser, deleteEvent);
 router.post('/getEventsUser',checkUser,getEventsbyUser);
 router.post('/applyEvent/:id',checkUser,applyEvent);
 router.get('/getParticipant/:id',checkUser,getParticipantByEvent);
+router.get('/getAllEvents',checkUser,getAllEvents);
+router.post('/unApplyEvent/:id',checkUser,UnApplyEvent);
 
 
 

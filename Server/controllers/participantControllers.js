@@ -43,6 +43,36 @@ const applyEvent = async (req, res) => {
     }
 };
 
+const UnApplyEvent = async (req,res)=>{
+    try{
+        const eventId = req.params.id;
+        const userId = req.user.id;
+        const username = req.user.username;
+
+        const participant = await Participant.findOne({ eventId, userId, username });
+        if (!participant) {
+            return res.status(400).json({ error: true, message: 'Not applied for the event' });
+        }
+
+        const event = await Event.findById(eventId);
+        if (!event) {
+            return res.status(404).json({ error: true, message: 'Event not found' });
+        }
+
+        event.participants = event.participants.filter(participant => participant.id !== userId);
+        await event.save();
+
+        await Participant.findOneAndDelete({ eventId, userId, username });
+
+        res.status(200).json({ message: 'Unenrolled successfully' });
+    }catch(error){
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const getEventsByParticipant = async(req,res)=>{
+    
+}
 module.exports = {
-    getParticipantByEvent,applyEvent
+    getParticipantByEvent,applyEvent,UnApplyEvent
 }; 

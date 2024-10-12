@@ -90,6 +90,19 @@ const getEventsbyUser = async (req, res) => {
     }
 };
 
+const getAllEvents = async(req,res)=>{
+    try{
+        const events = await Event.find();
+        if(!events){
+            return res.status(404).json({error:true,message:'No events found'})
+        }
+        return res.status(200).json({error:false,message:'Events fetched successfully',events})
+    }catch(err){
+        console.log(err.message)
+        return res.status(400).json({error:true,message:err.message})
+    }
+}
+
 const updateStatus = async(req,res)=>{
     try {
         const { id } = req.params;
@@ -109,4 +122,4 @@ const updateStatus = async(req,res)=>{
 } 
 
 
-module.exports = {createEvent,getEvents,getEvent,updateEvent,deleteEvent,getEventsbyUser}
+module.exports = {createEvent,getEvents,getEvent,updateEvent,deleteEvent,getEventsbyUser,getAllEvents,updateStatus}
