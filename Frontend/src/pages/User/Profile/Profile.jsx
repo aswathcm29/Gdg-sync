@@ -55,8 +55,7 @@ const Body = () => {
         </div>
         <img src={rings} className="w-[13rem] lg:w-[12rem]" />
       </div>
-      <div className='w-full flex items-center rounded-md justify-center py-[1rem]'>
-      </div>
+
       <div className='w-full grid md:grid-cols-3 items-center justify-center py-[1rem] gap-4'>
         <input
           className='px-[3rem] sm:px-[1rem] col-span-2 md:col-span-1 py-[1rem] rounded-md bg-gray-800'

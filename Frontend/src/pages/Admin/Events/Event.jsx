@@ -9,6 +9,7 @@ import TopSection from '../../../components/TopSection';
 import AdminNav from '../../../components/AdminNav';
 import FlatCards from '../../../components/FlatCards';
 import UserNav from '../../../components/UserNav';
+import Footer from '../../../components/Footer';
 
 const Body = () => {
   const token = getCookieValue('token');
@@ -143,6 +144,7 @@ const Event = () => {
         <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar flex flex-col">
           <TopSection />
           <Body />
+          <Footer/>
         </div>
       </div>
     </>

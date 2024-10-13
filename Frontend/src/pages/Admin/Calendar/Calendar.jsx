@@ -71,7 +71,7 @@ const Body = () => {
     <div className="p-4">
       <h1 className="text-4xl font-bold mb-6">Calendar</h1>
       {loading ? (
-        <p>Loading events...</p> 
+        <p className='h-full items-center justify-center text-2xl'>Loading events...</p> 
       ) : (
         <BigCalendar
           localizer={localizer}

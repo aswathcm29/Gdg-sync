@@ -16,6 +16,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { IoImages } from "react-icons/io5";
 import { FaUsers } from "react-icons/fa";
 import gallery from "../../../utils/gallery";
+import Footer from "../../../components/Footer";
 
 const Body = () => {
     const { id } = useParams();
@@ -180,6 +181,7 @@ const EventView = () => {
           <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar flex flex-col">
             <TopSection />
             <Body />
+            <Footer/>
           </div>
         </div>
       </>

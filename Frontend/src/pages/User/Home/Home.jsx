@@ -74,7 +74,7 @@ const Body = () => {
         <img src={lap} className="w-[20rem] md:w-[25rem] lg:w-[27rem]" />
         <div className="flex flex-col justify-center items-center lg:items-start lg:justify-between text-center lg:text-center gap-y-4 lg:gap-y-6">
           <span className="text-3xl md:text-5xl lg:text-7xl font-bold w-full tracking-wide">
-            <span>Gdg-</span><span>Sync</span>
+            <span className="text-blue">Gdg </span><span>Sync</span>
           </span>
           <p className="text-lg md:text-xl text-gray-600 w-[25rem] lg:w-[24rem]">
             Synchronize all your events with ease and manage them effortlessly.
