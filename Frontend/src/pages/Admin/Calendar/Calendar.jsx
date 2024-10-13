@@ -7,6 +7,7 @@ import AdminNav from '../../../components/AdminNav';
 import TopSection from '../../../components/TopSection';
 import './customCalendarStyles.css';
 import getCookieValue from '../../../utils/token';
+import Footer from '../../../components/Footer';
 
 const localizer = momentLocalizer(moment);
 
@@ -93,9 +94,10 @@ const Calendar = () => {
   return (
     <div className="bg-black text-[#f0f0f0] sm:min-h-screen lg:h-screen flex">
       <AdminNav />
-      <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar">
+      <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar flex flex-col">
         <TopSection />
         <Body />
+        <Footer />
       </div>
     </div>
   );

@@ -17,6 +17,7 @@ import { IoImages } from "react-icons/io5";
 import toast from "react-hot-toast";
 import UserNav from "../../../components/UserNav";
 import { FaUser } from "react-icons/fa";
+import Footer from "../../../components/Footer";
 
 const Body = () => {
     const { id } = useParams();
@@ -246,9 +247,10 @@ const EventUserView = () => {
       <>
         <div className="bg-black text-[#f0f0f0] min-h-screen lg:h-screen flex">
           <UserNav />
-          <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar">
+          <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar flex flex-col ">
             <TopSection />
             <Body />
+            <Footer/>
           </div>
         </div>
       </>

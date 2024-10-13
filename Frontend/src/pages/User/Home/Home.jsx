@@ -10,6 +10,7 @@ import CardShimmer from "../../../components/CardShimmer";
 import EventCard from "../../../components/EventCard";
 import UserNav from "../../../components/UserNav";
 import TopSection from "../../../components/TopSection";
+import Footer from "../../../components/Footer";
 
 
 const Body = () => {
@@ -69,11 +70,11 @@ const Body = () => {
 
   return (
     <div className="flex flex-col w-full justify-center items-center px-[1rem]">
-      <div className="p-[3rem]  md:p-[1rem] lg:p-[0.1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row-reverse lg:justify-around items-center shadow-sm shadow-white rounded-md">
+      <div className="p-[3rem]  md:p-[0.2rem] lg:p-[0.1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row lg:justify-around items-center shadow-sm shadow-white rounded-md">
         <img src={lap} className="w-[20rem] md:w-[25rem] lg:w-[27rem]" />
         <div className="flex flex-col justify-center items-center lg:items-start lg:justify-between text-center lg:text-center gap-y-4 lg:gap-y-6">
           <span className="text-3xl md:text-5xl lg:text-7xl font-bold w-full tracking-wide">
-            <span>Gdg <span className="text-green"></span><span className="text-blue">sync</span></span>
+            <span>Gdg-</span><span>Sync</span>
           </span>
           <p className="text-lg md:text-xl text-gray-600 w-[25rem] lg:w-[24rem]">
             Synchronize all your events with ease and manage them effortlessly.
@@ -138,9 +139,10 @@ const Home = () => {
       <>
         <div className="bg-black text-[#f0f0f0] min-h-screen lg:h-screen flex">
         <UserNav />
-        <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar ">
+        <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar flex flex-col ">
           <TopSection />
           <Body />
+          <Footer/>
         </div>
       </div>
       </>

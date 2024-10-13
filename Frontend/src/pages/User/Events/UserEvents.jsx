@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import rings from '../../../assets/images/ring-colors.png';
+import rings from '../../../assets/images/colors-flip.png';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
@@ -10,6 +10,8 @@ import TopSection from '../../../components/TopSection';
 import AdminNav from '../../../components/AdminNav';
 import FlatCards from '../../../components/FlatCards';
 import { Link } from 'react-router-dom';
+import UserNav from '../../../components/UserNav';
+import Footer from '../../../components/Footer';
 
 const Body = () => {
   const token = getCookieValue('token');
@@ -76,40 +78,40 @@ const Body = () => {
 
   return (
     <div className="flex flex-col px-[1rem] bg-black ">
-      <div className="p-[2rem] sm:p-[1rem] gap-y-[2rem] w-full lg:justify-around flex flex-col-reverse lg:flex-row items-center bg-transparent shadow-sm shadow-white rounded-md">
+      <div className="p-[2rem] sm:p-[2rem] gap-y-[2rem] w-full lg:justify-around flex flex-col-reverse lg:flex-row items-center bg-transparent shadow-sm shadow-white rounded-md">
         <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-y-4 lg:gap-y-6">
           <span className="text-3xl md:text-5xl font-bold w-full text-center">
-            <span>Hey <span className='text-blue'>{username} !</span></span>
+            <span>Search for<span className='text-blue'> events</span></span>
           </span>
-          <p className="text-lg md:text-xl text-gray-400 w-[20rem] text-center lg:w-[24rem]">
+          <span className="text-lg md:text-xl text-gray-400 w-[20rem] text-center lg:w-[24rem]">
             You can view your events here.
-          </p>
+          </span>
         </div>
-        <img src={rings} className="w-[13rem] lg:w-[12rem]" />
+        <img src={rings} className="w-[13rem] lg:w-[20rem]" />
       </div>
 
-      <div className='w-full grid md:grid-cols-3 items-center justify-center p-[1rem] gap-4'>
+      <div className='w-full grid md:grid-cols-3 items-center justify-center py-[1rem] gap-4'>
         <input
-          className='px-[3rem] sm:px-[1rem] col-span-2 md:col-span-1 py-[1rem] rounded-full bg-transparent shadow-sm shadow-green'
+          className='px-[3rem] sm:px-[1rem] col-span-2 md:col-span-1 py-[1rem] rounded-md bg-gray-800'
           placeholder='Search for your events'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         
         <select
-          className='px-[2rem] py-[1rem] rounded-full bg-transparent shadow-sm shadow-blue'
+          className='px-[1rem] py-[1rem] rounded-md bg-gray-800'
           value={selectedTag}
           onChange={(e) => setSelectedTag(e.target.value)}
         >
-          <option className='text-black shadow-sm shadow-white bg-transparent rounded-md' value="">All Tags</option>
-          <option className='text-black shadow-sm shadow-white bg-transparent rounded-md' value="workshop">Workshop</option>
-          <option className='text-black shadow-sm shadow-white bg-transparent rounded-md' value="conference">Conference</option>
-          <option  className='text-black shadow-sm shadow-white bg-transparent rounded-md' value="meetup">Meetup</option>
+          <option className=' rounded-md' value="">All Tags</option>
+          <option className=' rounded-md' value="workshop">Workshop</option>
+          <option className=' rounded-md' value="conference">Conference</option>
+          <option  className=' rounded-md' value="meetup">Meetup</option>
         </select>
 
         <input
           type="date"
-          className='px-[3rem] py-[1rem] rounded-full bg-transparent shadow-sm shadow-red'
+          className='px-[3rem] py-[1rem] rounded-md bg-gray-800'
           value={selectedDate}
           onChange={(e) => setSelectedDate(e.target.value)}
         />
@@ -140,10 +142,11 @@ const UserEvents = () => {
   return (
     <>
       <div className="bg-black text-[#f0f0f0] min-h-screen lg:h-screen flex">
-        <AdminNav />
+        <UserNav />
         <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar">
           <TopSection />
           <Body />
+          <Footer></Footer>
         </div>
       </div>
     </>

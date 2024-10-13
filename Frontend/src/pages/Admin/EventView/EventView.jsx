@@ -179,7 +179,7 @@ const EventView = () => {
         <>
         <div className="bg-black text-[#f0f0f0] min-h-screen lg:h-screen flex">
           <AdminNav />
-          <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar">
+          <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar flex flex-col">
             <TopSection />
             <Body />
           </div>

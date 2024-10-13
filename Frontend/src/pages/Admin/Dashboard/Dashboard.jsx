@@ -6,10 +6,11 @@ import { IoMdArrowDroprightCircle } from "react-icons/io";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
 import axios from "axios";
 import lap from '../../../assets/images/events-boook.png'
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import getCookieValue from "../../../utils/token";
 import CardShimmer from "../../../components/CardShimmer";
 import EventCard from "../../../components/EventCard";
+import Footer from "../../../components/Footer";
 
 const Body = () => {
   const [events, setEvents] = useState([]);
@@ -67,11 +68,17 @@ const Body = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleCreate=()=>{
+    navigate('/admin/create/event');
+  }
+
 
 
   return (
     <div className="flex flex-col w-full justify-center items-center px-[1rem]">
-      <div className="p-[3rem]  md:p-[1rem] lg:p-[0.1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row-reverse lg:justify-around items-center shadow-sm shadow-white rounded-md">
+      <div className="p-[3rem]  md:p-[0.1rem] lg:p-[0.1rem] gap-y-[2rem] w-full flex flex-col lg:flex-row-reverse lg:justify-around items-center shadow-sm shadow-white rounded-md">
         <img src={lap} className="w-[20rem] md:w-[25rem] lg:w-[27rem]" />
         <div className="flex flex-col justify-center items-center lg:items-start lg:justify-between text-center lg:text-center gap-y-4 lg:gap-y-6">
           <span className="text-3xl md:text-5xl lg:text-7xl font-bold w-full tracking-wide">
@@ -81,7 +88,7 @@ const Body = () => {
             Synchronize all your events with ease and manage them effortlessly.
           </p>
         </div>
-        <button className="lg:hidden p-[1rem] rounded-md bg-green">Create New</button>
+        <button onClick={handleCreate()} className="lg:hidden p-[1rem] rounded-md bg-green">Create New</button>
       
       </div>
 
@@ -144,9 +151,10 @@ const Dashboard = () => {
     <>
       <div className="bg-black text-[#f0f0f0] min-h-screen lg:h-screen flex">
       <AdminNav />
-      <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar ">
+      <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar flex flex-col justify-between">
         <TopSection />
         <Body />
+        <Footer/>
       </div>
     </div>
     </>
