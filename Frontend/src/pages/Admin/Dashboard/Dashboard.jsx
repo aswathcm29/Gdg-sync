@@ -88,7 +88,7 @@ const Body = () => {
             Synchronize all your events with ease and manage them effortlessly.
           </p>
         </div>
-        <button onClick={handleCreate()} className="lg:hidden p-[1rem] rounded-md bg-green">Create New</button>
+        <button onClick={()=>handleCreate()} className="lg:hidden p-[1rem] rounded-md bg-green">Create New</button>
       
       </div>
 
@@ -151,7 +151,7 @@ const Dashboard = () => {
     <>
       <div className="bg-black text-[#f0f0f0] min-h-screen lg:h-screen flex">
       <AdminNav />
-      <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar flex flex-col justify-between">
+      <div className="md:ml-[8rem] w-full overflow-y-auto no-scrollbar ">
         <TopSection />
         <Body />
         <Footer/>

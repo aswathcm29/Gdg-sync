@@ -125,7 +125,6 @@ const Body = () => {
               tags={event.tags}
               />
               </Link>  
-             
               ))}
         </div>
       </div>

@@ -105,7 +105,7 @@ const Signup = () => {
           className="input"
           onChange={(e)=>setPassword(e.target.value)}
         />
-        <button onClick={(e)=>handleLogin(e)} className="login-button" >Sign In</button>
+        <button onClick={(e)=>handleLogin(e)} className="login-button" >Register</button>
         <p className="text-white text-center">
             Have an account ?
             <Link to='/login'><span className="text-gray-400 hover:text-gray-300"> Login</span></Link>

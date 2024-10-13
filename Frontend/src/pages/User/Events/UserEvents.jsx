@@ -117,21 +117,26 @@ const Body = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-[1rem]">
-        {filteredEvents.map((event) => (
-          <FlatCards
-            key={event._id}
-            id={event._id}
-            title={event.title}
-            description={event.description}
-            date={new Date(event.date).toLocaleDateString()}
-            time={event.time}
-            image={event.image}
-            venue={event.location}
-          />
-    
-        ))}
-      </div>
+      {filteredEvents.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-[1rem]">
+          {filteredEvents.map((event) => (
+            <FlatCards
+              key={event._id}
+              id={event._id}
+              title={event.title}
+              description={event.description}
+              date={new Date(event.date).toLocaleDateString()}
+              time={event.time}
+              image={event.image}
+              venue={event.location}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="flex items-center justify-center h-[16rem]">
+          <span className="text-gray-400">No events found</span>
+        </div>
+      )}
 
       <Toaster />
     </div>
