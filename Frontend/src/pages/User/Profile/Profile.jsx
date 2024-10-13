@@ -111,7 +111,7 @@ const Profile = () => {
       <div className="md:ml-[8rem] w-full flex-grow overflow-y-auto no-scrollbar flex flex-col  ">
         <TopSection />
         <Body />
-        <Footer />
+        <Footer/>
       </div>
     </div>
   );
