@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import rings from '../../../assets/images/ring-colors.png';
@@ -8,6 +9,7 @@ import getCookieValue from "../../../utils/token";
 import TopSection from '../../../components/TopSection';
 import AdminNav from '../../../components/AdminNav';
 import FlatCards from '../../../components/FlatCards';
+import { Link } from 'react-router-dom';
 
 const Body = () => {
   const token = getCookieValue('token');
@@ -24,9 +26,8 @@ const Body = () => {
 
   const fetchEvents = async () => {
     try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}events/getEventsUser`,
-        { email: emailID },
+      const res = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}events/getAllEvents`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -126,6 +127,7 @@ const Body = () => {
             image={event.image}
             venue={event.location}
           />
+    
         ))}
       </div>
 

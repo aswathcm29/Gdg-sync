@@ -71,8 +71,37 @@ const UnApplyEvent = async (req,res)=>{
 }
 
 const getEventsByParticipant = async(req,res)=>{
+    try{
+        const userId = req.user.id;
+        const username = req.user.username;
+        const participants = await Participant.find({userId,username});
+        const events = await Promise.all(participants.map(participant => Event.findById(participant.eventId)));
+        if(!events){
+            return res.status(404).json({error:true,message:'No events found' });
+        }
     
+        res.status(200).json({message:'Fetched successfully',events});
+    }catch(error){
+        res.status(500).json({ message: error.message });
+    }
 }
+
+const getEnrollmentStatusByevent = async(req,res)=>{
+    try{
+        const eventId = req.params.id;
+        const userId = req.user.id;
+        const username = req.user.username;
+        const participant = await Participant.findOne({eventId,userId,username});
+        if(!participant){
+            return res.status(200).json({message:'Not enrolled',enrolled:false});
+        }
+        res.status(200).json({message:'Enrolled',enrolled:true});
+    }catch(err){
+        res.status(500).json({ message: error.message });
+    }
+}
+
+
 module.exports = {
-    getParticipantByEvent,applyEvent,UnApplyEvent
+    getParticipantByEvent,applyEvent,UnApplyEvent,getEventsByParticipant ,getEnrollmentStatusByevent
 }; 

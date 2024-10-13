@@ -22,6 +22,7 @@ import Event from './pages/Admin/Events/Event.jsx'
 import EventView from './pages/Admin/EventView/EventView.jsx'
 import UpdateEvent from './pages/Admin/UpdateEvent/UpdateEvent.jsx'
 import EventUserView from './pages/User/EventView/EventUserView.jsx'
+import UserEvents from './pages/User/Events/UserEvents.jsx'
 
 
 
@@ -88,6 +89,11 @@ const BrowserRouter = createBrowserRouter([
       {
         path: "event/:id",
         element: <EventUserView/>,
+      },
+      {
+        path:"events",
+        element: <UserEvents/>
+
       },
       {
         path: "settings",

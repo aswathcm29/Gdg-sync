@@ -6,6 +6,9 @@ import { GrLocationPin } from "react-icons/gr";
 import { MdOutlineTimer } from "react-icons/md";
 
 const FlatCards = (props) => {
+
+    const role = localStorage.getItem('role');
+    const linkTo = role === 'user' ? `/user/event/${props.id}` : `/admin/event/${props.id}`;
     console.log(props.id)
   return (
     <div className="">
@@ -14,8 +17,9 @@ const FlatCards = (props) => {
         transition={{ duration: 0.5, bounce: 0.5 }}
         className="bg-transparent shadow-sm shadow-white text-white p-6 rounded-lg transition-shadow duration-300"
       >
+      
         <Link
-          to={`/admin/event/${props.id}`}
+          to={`${linkTo}`} 
           className={`flex sm:p-4 m-4`}
         >
           <div className="sm:px-6 w-full">

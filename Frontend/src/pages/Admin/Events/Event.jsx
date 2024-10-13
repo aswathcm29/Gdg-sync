@@ -26,7 +26,8 @@ const Body = () => {
   const fetchEvents = async () => {
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}events/getAllEvents`,
+        `${import.meta.env.VITE_BASE_URL}events/getEventsUser`,
+        { email: emailID },
         {
           headers: {
             Authorization: `Bearer ${token}`,
