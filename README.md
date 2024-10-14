@@ -28,21 +28,21 @@ password : 123
 - **One-Click Enrollment**: Join events faster than you can say "GDG"!
 - **Personal Event Hub**: Track your event journey with a personalized dashboard
 
-## 🛠️ Tech Stack: The Building Blocks of Innovation
+## 🛠️ Tech Stack
 
-### Frontend Sorcery 🧙‍♂️
+### Frontend 🧙‍♂️
 - [React](https://reactjs.org/): Building our UI with the power of components
 - [Redux](https://redux.js.org/): Mastering state management like a pro
 - [Tailwind CSS](https://tailwindcss.com/): Crafting stunning designs with utility-first magic
 - [Masonry](https://masonry.desandro.com/): Creating captivating, cascading grid layouts
 - [React Icons](https://react-icons.github.io/react-icons/): Sprinkling delightful icons throughout the UI
 
-### Backend Wizardry 🧙‍♀️
+### Backend 🧙‍♀️
 - [Node.js](https://nodejs.org/): Powering our server with JavaScript
 - [Express](https://expressjs.com/): Crafting robust APIs with minimal effort
 - [JWT](https://jwt.io/): Securing our kingdom with token-based authentication
 
-## 🚀 Blast Off: Installation and Setup
+## 🚀 Installation and Setup
 
 ### 🎨 Frontend Launch Sequence
 
