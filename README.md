@@ -1,4 +1,4 @@
-# 🎉 GDG-Sync: Event Management for Google Developer Groups 🚀
+# GDG-Sync: Event Management for Google Developer Groups 🚀
 
 ## 🌟 Welcome to GDG-Sync!
 
@@ -9,8 +9,12 @@ GDG-Sync is not just another event management portal – it's a game-changer for
 To empower GDG organizers and members with a robust, intuitive platform that simplifies event creation, management, and participation, fostering stronger tech communities globally.
 
 ## Admin Credentials
-email : gdgadmin@gmail.com
-passwrd : admin
+Email : gdgadmin@gmail.com
+password : admin
+
+## User mock credential 
+Email : aswathcm@gmail.com
+password : 123
 
 ## 🔥 Key Features
 
