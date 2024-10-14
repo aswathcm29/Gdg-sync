@@ -8,6 +8,10 @@ GDG-Sync is not just another event management portal – it's a game-changer for
 
 To empower GDG organizers and members with a robust, intuitive platform that simplifies event creation, management, and participation, fostering stronger tech communities globally.
 
+## Admin Credentials
+email : gdgadmin@gmail.com
+passwrd : admin
+
 ## 🔥 Key Features
 
 ### 👑 For Admins (GDG Organizers)
