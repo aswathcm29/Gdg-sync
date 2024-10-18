@@ -60,7 +60,7 @@ const Signup = async (req, res) => {
 
         return res.status(200).json({
             error: false,
-            message: { text: 'User created successfully', token: token, role:'user',email:email }
+            message: { text: 'User created successfully', token: token, role:'user',email:email,username:username }
         });
 
     } catch (err) {
