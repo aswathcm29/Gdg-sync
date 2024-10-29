@@ -86,7 +86,7 @@ const Login = () => {
             placeholder="Email"
             id="email"
             type="email"
-            className={`input ${loading ? 'shimmer' : ''}`} 
+            className="input" 
             onChange={(e) => setEmail(e.target.value)}
             disabled={loading}
           />
@@ -94,7 +94,7 @@ const Login = () => {
             placeholder="Password"
             id="password"
             type="password"
-            className={`input ${loading ? 'shimmer' : ''}`} 
+            className="input" 
             onChange={(e) => setPassword(e.target.value)}
             disabled={loading} 
           />

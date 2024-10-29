@@ -28,9 +28,6 @@ const UserLayout = () => {
     },[navigate,token])
     return (
       <div>
-        <nav>
-            {/* Navbar */}
-        </nav>
         <div>
           <Outlet />
         </div>

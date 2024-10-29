@@ -5,12 +5,19 @@ const mongoose = require("mongoose")
 const userRoutes = require('./routes/userRoutes');
 const dotenv = require('dotenv');
 const eventRoutes = require('./routes/eventRoutes')
+const { createClient } = require('redis');
+
 
 const app = express();
 dotenv.config({ path: './.env' });
 
 app.use(express.json());
 app.use(cors());  
+
+const redisClient = createClient({
+    url: process.env.REDIS_URL, 
+  });
+  
 
 
 app.use(bodyParser.json());
@@ -40,3 +47,4 @@ app.get('/',(req, res)=>{
 
 
 
+module.exports = redisClient;
