@@ -8,16 +8,16 @@ export default {
     extend: {
       colors: {
         blue: {
-          DEFAULT: '#4285F4',  // Hex
+          DEFAULT: '#4285F4', 
         },
         red: {
-          DEFAULT: '#DB4437',  // Hex
+          DEFAULT: '#DB4437', 
         },
         yellow: {
-          DEFAULT: '#F4B400',  // Hex
+          DEFAULT: '#F4B400', 
         },
         green: {
-          DEFAULT: '#0F9D58',  // Hex
+          DEFAULT: '#0F9D58', 
         },
       },
     },
