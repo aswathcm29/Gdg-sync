@@ -14,7 +14,7 @@ dotenv.config({ path: './.env' });
 app.use(express.json());
 app.use(cors());  
 
-const redisClient = createClient({
+const redisClient =  createClient({
     url: process.env.REDIS_URL, 
   });
   
