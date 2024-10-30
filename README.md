@@ -1,10 +1,10 @@
-# GDG-Sync: Event Management for Google Developer Groups 🚀
+# GDG-Sync: Event Management for Google Developer Groups 
 
-## 🌟 Welcome to GDG-Sync!
+## Welcome to GDG-Sync!
 
 GDG-Sync is not just another event management portal – it's a game-changer for Google Developer Groups worldwide! Born from the need for a streamlined, efficient, and user-friendly platform, GDG-Sync brings the power of modern web technologies to the world of tech community events.
 
-## 🎯 Core Mission
+## Core Mission
 
 To empower GDG organizers and members with a robust, intuitive platform that simplifies event creation, management, and participation, fostering stronger tech communities globally.
 
@@ -16,7 +16,7 @@ password : admin
 Email : aswathcm@gmail.com
 password : 123
 
-## 🔥 Key Features
+## Key Features
 
 ### 👑 For Admins (GDG Organizers)
 - **Event Wizardry**: Create and manage events with a few magical clicks
@@ -30,21 +30,21 @@ password : 123
 
 ## 🛠️ Tech Stack
 
-### Frontend 🧙‍♂️
+### Frontend 
 - [React](https://reactjs.org/): Building our UI with the power of components
 - [Redux](https://redux.js.org/): Mastering state management like a pro
 - [Tailwind CSS](https://tailwindcss.com/): Crafting stunning designs with utility-first magic
 - [Masonry](https://masonry.desandro.com/): Creating captivating, cascading grid layouts
 - [React Icons](https://react-icons.github.io/react-icons/): Sprinkling delightful icons throughout the UI
 
-### Backend 🧙‍♀️
+### Backend 
 - [Node.js](https://nodejs.org/): Powering our server with JavaScript
 - [Express](https://expressjs.com/): Crafting robust APIs with minimal effort
 - [JWT](https://jwt.io/): Securing our kingdom with token-based authentication
 
-## 🚀 Installation and Setup
+## Installation and Setup
 
-### 🎨 Frontend Launch Sequence
+### Frontend Launch Sequence
 
 1. Navigate to the frontend galaxy:
    ```bash
@@ -79,7 +79,7 @@ password : 123
    ```
 
 
-## 🤝 Join the GDG-Sync Alliance
+## Join the GDG-Sync Alliance
 
 We believe in the power of community! Here's how you can contribute to the GDG-Sync mission:
 
