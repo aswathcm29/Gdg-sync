@@ -130,7 +130,15 @@ const deleteEvent = async (req, res) => {
 const getEventsbyUser = async (req, res) => {
     try {
         const { email } = req.body;
+        const cacheKey = `events:${email}`;
+        const cachedEvents = await client.get(cacheKey);
+
+        if(cachedEvents) {
+            return res.status(200).json({ error: false, message: 'Events fetched from cache', events: JSON.parse(cachedEvents) });
+        }
         const events = await Event.find({ organiser: email });
+        
+        await client.set(cacheKey, JSON.stringify(events), 'EX', 3600);
 
         return res.status(200).json({ error: false, message: 'Events fetched successfully', events });
     } catch (err) {
