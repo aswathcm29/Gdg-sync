@@ -11,7 +11,13 @@ const app = express();
 dotenv.config({ path: './.env' });
 
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+    origin: 'https://gdg-sync.vercel.app', 
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 
 const redisClient = createClient({
     url: process.env.REDIS_URL,
