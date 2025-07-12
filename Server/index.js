@@ -14,7 +14,6 @@ app.use(express.json());
 
 app.use(cors({
   origin: 'https://gdg-sync.vercel.app',
-  credentials: true
 }));
 
 const redisClient = createClient({
